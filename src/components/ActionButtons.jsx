@@ -1,15 +1,18 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useFollow } from '../context/FollowContext'
+import { useUser } from '../context/UserContext'
+import { buildGoogleCalendarUrl } from '../utils/googleCalendar'
 
 export default function ActionButtons({ event }) {
-  const [rsvpd, setRsvpd] = useState(false)
   const { isFollowing } = useFollow()
+  const { isRsvpd, toggleRsvp } = useUser()
+  const rsvpd = isRsvpd(event.id)
   const canRsvp = !event.isMemberOnly || isFollowing(event.clubId)
 
-  const handleRSVP = () => setRsvpd(!rsvpd)
+  const handleRSVP = () => toggleRsvp(event.id)
   const handleAddToCalendar = () => {
-    alert('Add to calendar (demo)')
+    const url = buildGoogleCalendarUrl(event)
+    if (url) window.open(url, '_blank', 'noopener,noreferrer')
   }
 
   return (

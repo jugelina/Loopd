@@ -10,9 +10,6 @@ export default function Home() {
 
   return (
     <div className="page-home">
-      <h1 className="page-title">Loopd</h1>
-      <p className="page-subtitle">Get in the Loop, Stay in the Loop.</p>
-
       <section className="section">
         <h2 className="section-title">Stories</h2>
         <StoryCarousel />

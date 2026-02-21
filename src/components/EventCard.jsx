@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom'
 import ActionButtons from './ActionButtons'
+import { useUser } from '../context/UserContext'
 
 export default function EventCard({ event }) {
+  const { isRsvpd } = useUser()
+  const rsvpd = isRsvpd(event.id)
+  const displayRsvpCount = (event.rsvpCount || 0) + (rsvpd ? 1 : 0)
+
   return (
     <article className="card event-card">
       <div className="event-card-header" style={{ background: 'var(--black)' }}>
@@ -15,7 +20,7 @@ export default function EventCard({ event }) {
           <li>{event.time}</li>
           <li>{event.location}</li>
         </ul>
-        <p className="event-rsvp">{event.rsvpCount} RSVPs</p>
+        <p className="event-rsvp">{displayRsvpCount} RSVPs</p>
         <ActionButtons event={event} />
       </div>
       <div className="event-card-footer">

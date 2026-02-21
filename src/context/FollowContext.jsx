@@ -3,10 +3,10 @@ import { createContext, useContext, useState, useCallback } from 'react'
 const FollowContext = createContext(null)
 
 export function FollowProvider({ children }) {
-  const [followedIds, setFollowedIds] = useState(new Set())
+  const [followClubIds, setFollowClubIds] = useState(new Set())
 
   const toggleFollow = useCallback((clubId) => {
-    setFollowedIds((prev) => {
+    setFollowClubIds((prev) => {
       const next = new Set(prev)
       if (next.has(clubId)) next.delete(clubId)
       else next.add(clubId)
@@ -14,13 +14,17 @@ export function FollowProvider({ children }) {
     })
   }, [])
 
+  const loadPreset = useCallback((clubIds) => {
+    setFollowClubIds(new Set(clubIds || []))
+  }, [])
+
   const isFollowing = useCallback(
-    (clubId) => followedIds.has(clubId),
-    [followedIds]
+    (clubId) => followClubIds.has(clubId),
+    [followClubIds]
   )
 
   return (
-    <FollowContext.Provider value={{ toggleFollow, isFollowing }}>
+    <FollowContext.Provider value={{ followClubIds, toggleFollow, loadPreset, isFollowing }}>
       {children}
     </FollowContext.Provider>
   )

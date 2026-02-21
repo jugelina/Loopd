@@ -59,14 +59,7 @@ export default function ClubPage() {
                   <strong>{p.clubName}</strong>
                 </div>
                 <div className="post-card-body">
-                  {p.imagePlaceholder && (
-                    <div className="post-image-placeholder" style={{ background: 'var(--gray-200)' }} />
-                  )}
                   <p>{p.text}</p>
-                </div>
-                <div className="post-card-footer">
-                  <span>❤️ {p.likes}</span>
-                  <span>💬 {p.comments}</span>
                 </div>
               </article>
             ))}

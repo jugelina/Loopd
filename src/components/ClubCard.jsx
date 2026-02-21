@@ -21,7 +21,9 @@ export default function ClubCard({ club }) {
         <div className="club-meta">
           <span>{club.memberCount} members</span>
         </div>
-        <FollowButton club={club} />
+        <div className="club-card-actions">
+          <FollowButton club={club} />
+        </div>
       </div>
     </Link>
   )

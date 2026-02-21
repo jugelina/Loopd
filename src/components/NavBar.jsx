@@ -4,7 +4,7 @@ export default function NavBar() {
   return (
     <nav className="navbar">
       <NavLink to="/" className="logo">
-        Loopd
+        <img src="/logo.png" alt="Loopd" className="logo-img" />
       </NavLink>
       <div className="nav-links">
         <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>
@@ -15,6 +15,9 @@ export default function NavBar() {
         </NavLink>
         <NavLink to="/discover" className={({ isActive }) => isActive ? 'active' : ''}>
           Discover
+        </NavLink>
+        <NavLink to="/search" className={({ isActive }) => isActive ? 'active' : ''}>
+          Search
         </NavLink>
         <NavLink to="/notifications" className={({ isActive }) => isActive ? 'active' : ''}>
           Notifications
