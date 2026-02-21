@@ -1,7 +1,7 @@
 export const interests = [
   'Arts', 'Sports', 'Tech', 'Culture', 'Music', 'Gaming', 'Volunteer', 'Academic', 'Social', 'Media',
   'Photography', 'Dance', 'Theater', 'Writing', 'Sustainability', 'Entrepreneurship', 'Pre-med', 'Law',
-  'Affinity', 'Pre-Professional', 'Soccer', 'Pickleball', 'Gaelic Football'
+  'Affinity', 'Pre-Professional'
 ]
 
 export const clubs = [
