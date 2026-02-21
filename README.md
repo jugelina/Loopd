@@ -19,7 +19,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5203](http://localhost:5203).
+Open [http://localhost:5204](http://localhost:5204).
 
 ## Build
 
